@@ -12,7 +12,8 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: ['https://inventorysaas.netlify.app/'], // allow frontend URL
+    origin: 'https://inventorysaas.netlify.app',  // ✅ Allow Netlify frontend
+    methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true
 }));
 app.use(express.json());
