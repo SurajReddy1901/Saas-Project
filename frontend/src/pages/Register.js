@@ -12,11 +12,15 @@ const Register = ({ setAuth }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await API.post('/auth/login', { email, password });
-            setToken(res.data.token);
-            toast.success("Registration Successfull!")
+            await API.post('/auth/register', { email, password });
+            toast.success('🎉 Registration successful! Logging you in...');
+
+            // Step 2: Then login the user
+            const loginRes = await API.post('/auth/login', { email, password });
+            setToken(loginRes.data.token);
             setUserEmail(email);
             setAuth(true);
+            toast.success("Login Successful")
         } catch (err) {
             toast.error(err?.response?.data?.msg || 'Registration failed');
         }
