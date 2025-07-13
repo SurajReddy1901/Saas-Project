@@ -11,7 +11,10 @@ const { checkAlerts } = require('./jobs/inventoryAlerts');
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: ['https://inventorysaas.netlify.app/'], // allow frontend URL
+    credentials: true
+}));
 app.use(express.json());
 
 connectDB();
