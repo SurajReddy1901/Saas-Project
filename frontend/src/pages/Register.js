@@ -14,7 +14,7 @@ const Register = ({ setAuth }) => {
         try {
             const res = await API.post('/auth/login', { email, password });
             setToken(res.data.token);
-            toast.success(res.data.msg)
+            toast.success("Registration Successfull!")
             setUserEmail(email);
             setAuth(true);
         } catch (err) {

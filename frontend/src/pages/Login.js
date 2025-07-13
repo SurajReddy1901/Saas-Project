@@ -15,7 +15,7 @@ const Login = ({ setAuth }) => {
             setToken(res.data.token);
             setUserEmail(email);
             setAuth(true); // 🔥 key part
-            toast.success(res.data.msg)
+            toast.success("Login Successful")
         } catch (err) {
             toast.error(err?.response?.data?.msg || 'Login failed');
         }
